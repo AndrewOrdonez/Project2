@@ -3,18 +3,9 @@ package fightClub;
 public class Character
 	{
 private String name;
-private int weapon;
-public String weaponName(){
-	switch(weapon){
-		case 0: return "fists";
-		case 1:return "knife";
-		case 2:return "sword";
-		case 3:return "pistol";
-		case 4:return "rifle";
-		case 5:return "nuke"; 
-		default: return "";
-	}
-}
+private String object;
+private int[] location={0,1,3};
+
 public String getName()
 	{
 		return name;
@@ -23,13 +14,13 @@ public void setName(String name)
 	{
 		this.name = name;
 	}
-public int getWeapon()
+public String getObject()
 	{
-		return weapon;
+		return object;
 	}
-public void setWeapon(int weapon)
+public void setObject(String weapon)
 	{
-		this.weapon = weapon;
+		this.object = weapon;
 	}
 
 
