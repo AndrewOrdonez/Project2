@@ -8,7 +8,16 @@ private boolean eDoor=false;
 private boolean wDoor=false;
 private ArrayList<String> objects=new ArrayList<String>(0);
 private int enemies;
-private boolean stairs=false;
+private int stairs;
+Room(boolean n,boolean s,boolean e,boolean w,int st, int en, String obj){
+	this.eDoor=e;
+	this.nDoor=n;
+	this.wDoor=w;
+	this.sDoor=s; 
+	this.enemies=en;
+ 	this.stairs=st; 
+	this.objects.add(obj);
+}
 public boolean isnDoor()
 	{
 		return nDoor;
@@ -57,10 +66,10 @@ public void setEnemies(int traps)
 	{
 		this.enemies=traps;
 	}
-public void setStairs(boolean s){
+public void setStairs(int s){
 	this.stairs=s;
 }
-public boolean getStrairs(){
+public int getStrairs(){
 	return stairs;
 }
 	}
