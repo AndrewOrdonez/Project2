@@ -4,8 +4,8 @@ public class Character
 	{
 private String name;
 private String object;
-private int[] location={0,1,3};
-
+private int location=1;
+ 
 public String getName()
 	{
 		return name;
@@ -22,8 +22,14 @@ public void setObject(String weapon)
 	{
 		this.object = weapon;
 	}
+public int getLocation() {
+	return location;
+}
+public void setLocation(int location) {
+	this.location = location;
+}
 
 
-
-
+ 
+ 
 	}
