@@ -75,8 +75,8 @@ static void possible(){
 		System.out.println("ascend stairs");
 		dirU=true;
 	}
-	for (int q=0;q<5;q++)
-	if (current.getObjects(q).equals("0")){}
+	for (int q=0;q<current.getObjectAmount();q++)
+	if (current.getObjects(q).equals(null)){}
 	else{
 		if (MainGame.player.getObject().isEmpty()){
 		System.out.println("get "+current.getObjects(q));

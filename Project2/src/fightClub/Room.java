@@ -46,6 +46,9 @@ public boolean iswDoor()
 	{
 		return wDoor;
 	}
+public int getObjectAmount(){
+	return objects.size();
+}
 public void setwDoor(boolean wDoor)
 	{
 		this.wDoor = wDoor;
