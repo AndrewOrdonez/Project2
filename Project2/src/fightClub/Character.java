@@ -3,9 +3,13 @@ package fightClub;
 public class Character
 	{
 private String name;
-private String object;
+private String object="";
 private int location=1;
  
+public Character(){
+	name="";
+	object="";
+}
 public String getName()
 	{
 		return name;

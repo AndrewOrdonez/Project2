@@ -9,7 +9,7 @@ public class Tutorial
 	
 	
 public static void dot(){
-	System.out.println("to enter a door, type 'enter ' and then the number of the door. \nTo pick up an item in a room, type 'get ' followed by the name of the item. \nYou may only hold one item at a time. Your goal is to get to the bottom of the dungeon, and the escape with the treasure. \nAll controls will be listed when they are available anyways, so there really is no need for this tutorial page. Please restart the program");
+	System.out.println("to enter a door, type 'enter ' and then the number of the door. \nTo pick up an item in a room, type 'get ' followed by the name of the item. \nYou may only hold one item at a time. Your goal is to get to the bottom of the dungeon, and the escape with the treasure. \nAll options will be listed when they are available.\n\n\n");
 }
 
 
@@ -34,9 +34,7 @@ static boolean dirN=false;
 static boolean dirS=false;
 static boolean dirU=false;
 static boolean dirD=false;
-static ArrayList<String> item=new ArrayList<String>(0);
 static void possible(){
-	item.clear();
 	
 	System.out.println("Posibilities:");
 	Room current = new Room(false,false,false,false,0,0,null);
@@ -64,7 +62,7 @@ static void possible(){
 		System.out.println("enter south door");
 		dirS=true;
 	}
-	if(!MainGame.player.getObject().equals("")){
+	if(!MainGame.player.getObject().equals(" ")){
 		System.out.println("drop "+MainGame.player.getObject());
 	}
 	if(current.getStrairs()==1){
@@ -75,14 +73,13 @@ static void possible(){
 		System.out.println("ascend stairs");
 		dirU=true;
 	}
-	for (int q=0;q<current.getObjectAmount();q++)
-	if (current.getObjects(q).equals(null)){}
+	for (int q=0;q<current.getObjectAmount();q++){
+	if (current.getObjects(q).equals(" ")){}
 	else{
-		if (MainGame.player.getObject().isEmpty()){
+		if (MainGame.player.getObject().equals(" ")){
 		System.out.println("get "+current.getObjects(q));
-		item.add(current.getObjects(q));
 		}
-	}
+	}}
 }
 
 
@@ -198,15 +195,19 @@ else if (str.equals("enter north door")&&dirN){
 		}
 }
 }
-	else if (str.equals("drop "+MainGame.player.getObject())&&MainGame.player.getObject().isEmpty()==false){
+	else if (str.equals("drop "+MainGame.player.getObject())&&(!MainGame.player.getObject().equals(" "))){
 		TheFunStuff.findRoom().setObjects(MainGame.player.getObject());
-		MainGame.player.setObject(null);
+		MainGame.player.setObject(" ");
 	}
-	else if (MainGame.player.getObject().equals(null)){
+	else if (MainGame.player.getObject().equals(" ")){
 	for (int j=0;j<5;j++){
-		 if(str.equals("get "+item.get(j))){
-			 MainGame.player.setObject(item.get(j));
-			 System.out.println("picked up the "+item.get(j));
+		 if(str.equals("get "+TheFunStuff.findRoom().getObjects(j))){
+			 MainGame.player.setObject(TheFunStuff.findRoom().getObjects(j));
+			 System.out.println("picked up the "+TheFunStuff.findRoom().getObjects(j));
+			 TheFunStuff.findRoom().delObjects(j);
+			 TheFunStuff.findRoom().setObjects(" ");
+			 TheFunStuff.findRoom().setObjects(" ");
+			 
 		 }
 }
 }

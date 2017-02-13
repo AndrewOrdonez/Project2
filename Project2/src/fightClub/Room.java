@@ -6,7 +6,7 @@ private boolean nDoor=false;
 private boolean sDoor=false;
 private boolean eDoor=false;
 private boolean wDoor=false;
-private ArrayList<String> objects=new ArrayList<String>(0);
+private ArrayList<String> objects=new ArrayList<String>();
 private int enemies;
 private int stairs;
 Room(boolean n,boolean s,boolean e,boolean w,int st, int en, String obj){
@@ -53,6 +53,9 @@ public void setwDoor(boolean wDoor)
 	{
 		this.wDoor = wDoor;
 	}
+public void delObjects(int i){
+objects.remove(i);
+}
 public String getObjects(int i)
 	{
 		return objects.get(i);

@@ -6,13 +6,13 @@ public class MainGame
 static Scanner scan= new Scanner(System.in);
 static Character player = new Character();
 static boolean braziersLit=false;
-static Room r1=new Room(false,true,false,false,0,0,"0");
+static Room r1=new Room(false,true,false,false,0,0," ");
 //
 static Room r2=new Room(false, false, true, false, 0, 0, "sword");
 //
-static Room r3=new Room(true, false, true, true, 0, 0, "0");
+static Room r3=new Room(true, false, true, true, 0, 0, " ");
 //
-static Room r4=new Room(false, true, false, true, 0, 0, "0");
+static Room r4=new Room(false, true, false, true, 0, 0, " ");
 //
 static Room r5=new Room(true, true, false, false, 0, 1, null);
 //
@@ -50,13 +50,14 @@ static Room r19=new Room(false, false, false, true, 0, 0, "treasure");
 player.setObject("");
 player.setLocation(1);
  System.out.println("What would you like to be called?");
- player.setName(scan.next());
+ player.setName(scan.nextLine());
  System.out.println("Hello "+player.getName()+". you are an adventurer looking for treasure.\nYou have found the entrance to a secret dungeon, type '1' if you already know the controls and would like to enter. \nType anythig else if you would like to learn the controls");
-	if (scan.next().equals("1")){
+	if (scan.nextLine().equals("1")){
 		Tutorial.UI();
 	}
 	else {
 		Tutorial.dot();
+		Tutorial.UI();
 	}
 	}
 
