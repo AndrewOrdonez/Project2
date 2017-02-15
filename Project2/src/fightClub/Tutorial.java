@@ -9,7 +9,7 @@ public class Tutorial
 	
 	
 public static void dot(){
-	System.out.println("to enter a door, type 'enter ' and then the number of the door. \nTo pick up an item in a room, type 'get ' followed by the name of the item. \nYou may only hold one item at a time. Your goal is to get to the bottom of the dungeon, and the escape with the treasure. \nAll options will be listed when they are available.\n\n\n");
+	System.out.println("to enter a door, type 'enter ' and then the number of the door. \nTo pick up an item in a room, type 'get ' followed by the name of the item. \nYou may only hold one item at a time, and you can only see other items when you have none,\nYour goal is to get to the bottom of the dungeon, and the escape with the treasure. \nAll options will be listed when they are available.\n\n\n");
 }
 
 
@@ -62,7 +62,7 @@ static void possible(){
 		System.out.println("enter south door");
 		dirS=true;
 	}
-	if(!MainGame.player.getObject().equals(" ")){
+	if(!MainGame.player.getObject().equals("")){
 		System.out.println("drop "+MainGame.player.getObject());
 	}
 	if(current.getStrairs()==1){
@@ -74,9 +74,9 @@ static void possible(){
 		dirU=true;
 	}
 	for (int q=0;q<current.getObjectAmount();q++){
-	if (current.getObjects(q).equals(" ")){}
+	if (current.getObjects(q).equals("")){}
 	else{
-		if (MainGame.player.getObject().equals(" ")){
+		if (MainGame.player.getObject().equals("")){
 		System.out.println("get "+current.getObjects(q));
 		}
 	}}
@@ -117,6 +117,7 @@ if (str.equals("enter east door")&&dirE){
 			System.out.println("There are skeletons in that room, you need a weapon to kill them");break;
 		}
 	case 18:MainGame.player.setLocation(19);break;
+	default: reject();break;
 }
 }
 else if (str.equals("enter west door")&&dirW){
@@ -138,9 +139,9 @@ else if (str.equals("enter west door")&&dirW){
 }
 else if (str.equals("enter north door")&&dirN){
 	switch(MainGame.player.getLocation()){
-	case 3:MainGame.player.setLocation(1);
-	case 5:MainGame.player.setLocation(4);
-	case 6:MainGame.player.setLocation(5);
+	case 3:MainGame.player.setLocation(1);break;
+	case 5:MainGame.player.setLocation(4);break;
+	case 6:MainGame.player.setLocation(5);break;
 	case 8:if (MainGame.player.getObject().equals("torch")||MainGame.braziersLit){
 		MainGame.player.setLocation(9);break;
 		}
@@ -149,6 +150,7 @@ else if (str.equals("enter north door")&&dirN){
 		}
 	case 9:if(MainGame.player.getObject().equals("sword")||MainGame.player.getObject().equals("fire staff")){
 		System.out.println("you kill the skeletons in the room");
+		TheFunStuff.findRoom().setEnemies(0);
 		MainGame.player.setLocation(10);
 		break;
 		}
@@ -165,6 +167,7 @@ else if (str.equals("enter north door")&&dirN){
 		case 4:if(MainGame.player.getObject().equals("sword")||MainGame.player.getObject().equals("fire staff")){
 			System.out.println("you kill the skeletons in the room");
 			MainGame.player.setLocation(5);
+			TheFunStuff.findRoom().setEnemies(0);
 			break;
 			}
 			else {
@@ -181,32 +184,32 @@ else if (str.equals("enter north door")&&dirN){
 		case 12:if(MainGame.player.getObject().equals("sword")||MainGame.player.getObject().equals("fire staff")){
 			System.out.println("you kill the skeletons in the room");
 			MainGame.player.setLocation(13);
+			TheFunStuff.findRoom().setEnemies(0);
 			break;
 			}
 			else {
 				System.out.println("There are skeletons in that room, you need a weapon to kill them");break;
 			}
-		case 14:MainGame.player.setLocation(15);
+		case 14:MainGame.player.setLocation(15);break;
 		case 17:if (MainGame.player.getObject().equals("fire staff")){
 		System.out.println("using your magical staff of flame, you destroy the lich king in a dazzling inferno");
-		MainGame.player.setLocation(18);break;
+		MainGame.player.setLocation(18);
+		TheFunStuff.findRoom().setEnemies(0);break;
 		}
 		else{System.out.println("the lich king resides in this room, only the heat of a magical flame can destroy him");break;
 		}
 }
 }
-	else if (str.equals("drop "+MainGame.player.getObject())&&(!MainGame.player.getObject().equals(" "))){
+	else if (str.equals("drop "+MainGame.player.getObject())&&(!MainGame.player.getObject().equals(""))){
 		TheFunStuff.findRoom().setObjects(MainGame.player.getObject());
-		MainGame.player.setObject(" ");
+		MainGame.player.setObject("");
 	}
-	else if (MainGame.player.getObject().equals(" ")){
-	for (int j=0;j<5;j++){
+	else if (MainGame.player.getObject().equals("")){
+	for (int j=0;j<TheFunStuff.findRoom().getObjectAmount();j++){
 		 if(str.equals("get "+TheFunStuff.findRoom().getObjects(j))){
 			 MainGame.player.setObject(TheFunStuff.findRoom().getObjects(j));
 			 System.out.println("picked up the "+TheFunStuff.findRoom().getObjects(j));
 			 TheFunStuff.findRoom().delObjects(j);
-			 TheFunStuff.findRoom().setObjects(" ");
-			 TheFunStuff.findRoom().setObjects(" ");
 			 
 		 }
 }
@@ -249,6 +252,7 @@ case 1:
 	
  if (MainGame.player.getObject().equals("treasure")){
 		System.out.println("YOU ESCAPED WITH THE TREASURE! YOU WIN!");
+		System.exit(0);
 		break;
 	}
 	else {System.out.println("you are outside the dungeon \nposibilities: \nenter south door");

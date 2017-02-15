@@ -6,42 +6,42 @@ public class MainGame
 static Scanner scan= new Scanner(System.in);
 static Character player = new Character();
 static boolean braziersLit=false;
-static Room r1=new Room(false,true,false,false,0,0," ");
+static Room r1=new Room(false,true,false,false,0,0,"");
 //
 static Room r2=new Room(false, false, true, false, 0, 0, "sword");
 //
-static Room r3=new Room(true, false, true, true, 0, 0, " ");
+static Room r3=new Room(true, false, true, true, 0, 0, "");
 //
-static Room r4=new Room(false, true, false, true, 0, 0, " ");
+static Room r4=new Room(false, true, false, true, 0, 0, "");
 //
-static Room r5=new Room(true, true, false, false, 0, 1, null);
+static Room r5=new Room(true, true, false, false, 0, 1, "");
 //
-static Room r6=new Room(true, false, false, false, 1, 0, null);
+static Room r6=new Room(true, false, false, false, 1, 0, "");
 //
 static Room r7=new Room(false, false, true, false, 2, 0, "torch");
 //
-static Room r8=new Room(true, false, false, true, 0, 3, null);
+static Room r8=new Room(true, false, false, true, 0, 3, "");
 //
-static Room r9=new Room(false, false, false, false, 0, 0, null);
+static Room r9=new Room(true, true, false, false, 0, 0, "");
 //remember the fires
 //
-static Room r10=new Room(false, true, false, true, 0, 1, null);
+static Room r10=new Room(false, true, false, true, 0, 1, "");
 // 
-static Room r11=new Room(false, false, true, true, 0, 3, null);
+static Room r11=new Room(false, false, true, true, 0, 3, "");
 // 
-static Room r12=new Room(false, true, true, false, 0, 3, null);
+static Room r12=new Room(false, true, true, false, 0, 3, "");
 //
-static Room r13=new Room(true, false, false, true, 0, 1, null);
+static Room r13=new Room(true, false, false, true, 0, 1, "");
 //
-static Room r14=new Room(false, true, true, false, 1, 3, null);
+static Room r14=new Room(false, true, true, false, 1, 3, "");
 //
 static Room r15=new Room(true, false, false, false, 0, 0, "fire staff");
 //
-static Room r16=new Room(false, false, true, false, 2, 0, null);
+static Room r16=new Room(false, false, true, false, 2, 0, "");
 // 
-static Room r17=r10;
+static Room r17=new Room(false, true, false, true, 0, 1, "");
 //
-static Room r18=new Room(true, false, true, false, 0, 2, null);
+static Room r18=new Room(true, false, true, false, 0, 2, "");
 // 
 static Room r19=new Room(false, false, false, true, 0, 0, "treasure");
 
