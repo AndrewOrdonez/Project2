@@ -1,5 +1,7 @@
 package fightClub;
 import java.util.ArrayList;
+//port in your jframes
+//use the website from earlier
 public class Tutorial
 	{
 	
@@ -231,6 +233,9 @@ else if (str.equals("enter north door")&&dirN){
 		case 7:MainGame.player.setLocation(6);break;
 		case 16:MainGame.player.setLocation(14);break;
 	}
+	}
+	else if (str.equals("up up down down left right left right b a start")){
+		MainGame.player.setObject("treasure");
 	}
 	else{reject();}
 
