@@ -1,5 +1,9 @@
 package fightClub;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.*;
+import java.awt.*;
 //port in your jframes
 //use the website from earlier
 public class Tutorial
@@ -41,6 +45,13 @@ static void possible(){
 	System.out.println("Posibilities:");
 	Room current = new Room(false,false,false,false,0,0,null);
 	current =TheFunStuff.findRoom();
+	DrawPanel pos=new DrawPanel();
+	
+	
+	MainGame.application.add(pos,0);
+	MainGame.application.getComponent(0).setVisible(true);
+	MainGame.application.hide();
+	MainGame.application.show();
 	 dirE=false;
 	 dirW=false;
 	 dirN=false;
@@ -261,6 +272,7 @@ case 1:
 		break;
 	}
 	else {System.out.println("you are outside the dungeon \nposibilities: \nenter south door");
+	MainGame.application.add(MainGame.panel);
 	if( MainGame.scan.nextLine().equals("enter south door")){
 		MainGame.player.setLocation(3);
 		UI();
