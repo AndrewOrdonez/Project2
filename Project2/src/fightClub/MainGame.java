@@ -1,5 +1,12 @@
 package fightClub;
 import java.util.Scanner;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingConstants;
+
+import java.awt.*;
 import java.util.ArrayList;
 public class MainGame
 	{
@@ -44,9 +51,15 @@ static Room r17=new Room(false, true, false, true, 0, 1, "");
 static Room r18=new Room(true, false, true, false, 0, 2, "");
 // 
 static Room r19=new Room(false, false, false, true, 0, 0, "treasure");
-
+static	    DrawPanel panel = new DrawPanel();                            
+static JFrame application = new JFrame(); 
 	public static void main(String[] args){
-		
+                  
+	    application.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);                                                  
+	    application.add(panel);    
+	    application.setSize(1000, 800);
+	    application.setVisible(true); 
+	    
 player.setObject("");
 player.setLocation(1);
  System.out.println("What would you like to be called?");
